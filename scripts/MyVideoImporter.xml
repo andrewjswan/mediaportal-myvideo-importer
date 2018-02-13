@@ -110,9 +110,9 @@
         <Name>MyVideo Importer</Name>
         <Id>dba14ebb-b9c8-4996-a015-073da658b94b</Id>
         <Author>ajs</Author>
-        <HomePage>https://github.com/yoavain/mediaportal-myvideo-importer</HomePage>
+        <HomePage>https://github.com/andrewjswan/mediaportal-myvideo-importer</HomePage>
         <ForumPage>http://forum.team-mediaportal.com/threads/myvideo-importer-v2-3-x-000.132114/</ForumPage>
-        <UpdateUrl>https://raw.githubusercontent.com/yoavain/mediaportal-myvideo-importer/master/scripts/MyVideoImporter.xml</UpdateUrl>
+        <UpdateUrl>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/scripts/MyVideoImporter.xml</UpdateUrl>
         <Version>
           <Major>1</Major>
           <Minor>0</Minor>
@@ -122,8 +122,8 @@
         <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
         <VersionDescription>Initial version</VersionDescription>
         <DevelopmentStatus>Stable</DevelopmentStatus>
-        <OnlineLocation>https://github.com/yoavain/mediaportal-myvideo-importer/raw/master/builds/MyVideoImporter-1.0.1.0.mpe1</OnlineLocation>
-        <ReleaseDate>2018-02-13T22:38:21.2161714+02:00</ReleaseDate>
+        <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/raw/master/builds/MyVideoImporter-1.0.1.0.mpe1</OnlineLocation>
+        <ReleaseDate>2018-02-13T22:50:28.5618566+02:00</ReleaseDate>
         <Tags>myvideo, importer</Tags>
         <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
         <Params>
