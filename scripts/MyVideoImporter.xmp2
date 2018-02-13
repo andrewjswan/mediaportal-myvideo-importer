@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>2.0</Version>
+  <Groups>
+    <Items>
+      <GroupItem Name="Default">
+        <ParentGroup />
+        <DisplayName>Default</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Default</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\MyVideoImporter\bin\Release\MyVideoImporter.dll</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{3e0cdaf9-7327-465e-b13e-9bf42591759d}-MyVideoImporter.dll</ZipFileName>
+              <DestinationFilename>%Base%\plugins\Windows\MyVideoImporter.dll</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Languages">
+        <DisplayName>Languages</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Languages</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\language\en.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c2eab1ba-0331-4372-80c0-fe560ec77f5f}-en.xml</ZipFileName>
+              <DestinationFilename>%Language%\MyVideoImporter\en.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\language\ru.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b409cb17-1a68-48d9-976e-e82760ce6e13}-ru.xml</ZipFileName>
+              <DestinationFilename>%Language%\MyVideoImporter\ru.xml</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Skins">
+        <DisplayName>Skins</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Skins</Description>
+        <Files>
+          <Items />
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Titan">
+        <ParentGroup>Skins</ParentGroup>
+        <DisplayName>Titan</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Titan</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\common.default.background.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a7e8aca0-3d93-4d4a-b68c-41848f4ef656}-common.default.background.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\common.default.background.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.facade.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{7e71ad9a-eced-4724-9df7-563798154233}-MyVideoImporter.facade.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\MyVideoImporter.facade.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.hiddenmenu.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{7182805e-91ab-46fa-ba7d-8bd80ee6213c}-MyVideoImporter.hiddenmenu.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\MyVideoImporter.hiddenmenu.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.window.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{ca9092c0-3940-426d-920a-eb5391f20d75}-MyVideoImporter.window.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\MyVideoImporter.window.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5505e495-62e3-4870-9f5d-57b17bd733ab}-MyVideoImporter.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\MyVideoImporter.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_ADDED.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c11abd45-8be6-4e34-a470-c4daf85a2240}-importer_ADDED.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_ADDED.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_COMPLETE.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{9d60bd29-6bf6-49fb-88a7-4f5b36967377}-importer_COMPLETE.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_COMPLETE.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_GETTING_IMDB.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{0aacfd2e-7735-4c26-a18a-8d14427501ca}-importer_GETTING_IMDB.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_GETTING_IMDB.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_GETTING_INFO.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{40e1475b-61e1-4a10-8ef8-c3a033a80bda}-importer_GETTING_INFO.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_GETTING_INFO.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_NONE.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{94c23189-a83c-4126-98ac-1b1075fff64c}-importer_NONE.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_NONE.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_QUEUED_IMDB.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{029f9d9c-0115-497e-bd2b-9617d3d52037}-importer_QUEUED_IMDB.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_QUEUED_IMDB.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_QUEUED_INFO.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{3ee71d9e-5fc0-4bf1-a901-b95b396e28ba}-importer_QUEUED_INFO.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_QUEUED_INFO.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_SKIP.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{f408646c-98d1-45ce-84ff-bbb457af373b}-importer_SKIP.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_SKIP.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_WAITING.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{8aa2efbe-71c0-41b1-b79f-56c3818ca0b5}-importer_WAITING.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_WAITING.png</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+    </Items>
+  </Groups>
+  <Sections>
+    <Items>
+      <SectionItem Guid="950f0bd4-b21d-4cfb-b5ee-8d12d0129679" Name="Welcome Screen" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header text">
+              <Value>Welcome to the Extension Installer for [Name]</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Description">
+              <Value>This will install [Name] version [Version] on your computer.
+It is recommended that you close all other applications before continuing.
+Click Next to continue or Cancel to exit Setup.
+
+Best Regards
+cul8er</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Left part image">
+              <Value />
+              <ValueType>File</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\MyVideoImporter\Resources\MyVideoImporter.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Welcome Screen</PanelName>
+        <WizardButtonsEnum>NextCancel</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="ea79a142-a7c9-4530-b7a8-d3eac63eef42" Name="Install Section" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header Title">
+              <Value>Installing the [Name] extension...</Value>
+              <ValueType>String</ValueType>
+              <Description>Header title</Description>
+            </SectionParam>
+            <SectionParam Name="Header description">
+              <Value />
+              <ValueType>String</ValueType>
+              <Description>Description of section, shown in under section title</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\MyVideoImporter\Resources\MyVideoImporter.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items>
+            <ActionItem Name="InstallFiles" ActionType="InstallFiles" ConditionGroup="">
+              <Params>
+                <Items />
+              </Params>
+              <ExecuteLocation>AfterPanelShow</ExecuteLocation>
+            </ActionItem>
+          </Items>
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Install Section</PanelName>
+        <WizardButtonsEnum>Next</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="e4d0d8f2-ad3d-4036-a846-cb0122f99fd8" Name="Setup Complete" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header text">
+              <Value>The Extension Installer Wizard has successfully installed [Name].</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Left part image">
+              <Value />
+              <ValueType>File</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Show radio buttons">
+              <Value>NO</Value>
+              <ValueType>Bool</ValueType>
+              <Description>Use radiobutton in place of combobox</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\MyVideoImporter\Resources\MyVideoImporter.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Setup Complete</PanelName>
+        <WizardButtonsEnum>Finish</WizardButtonsEnum>
+      </SectionItem>
+    </Items>
+  </Sections>
+  <Dependencies>
+    <Items>
+      <DependencyItem>
+        <Type>MediaPortal</Type>
+        <Id />
+        <MinVersion>
+          <Major>1</Major>
+          <Minor>1</Minor>
+          <Build>6</Build>
+          <Revision>27644</Revision>
+        </MinVersion>
+        <MaxVersion>
+          <Major>1</Major>
+          <Minor>1</Minor>
+          <Build>6</Build>
+          <Revision>27644</Revision>
+        </MaxVersion>
+        <WarnOnly>false</WarnOnly>
+        <Message>Requires MediaPortal version 1.2</Message>
+        <Name>MediaPortal</Name>
+      </DependencyItem>
+      <DependencyItem>
+        <Type>Skin</Type>
+        <Id />
+        <MinVersion>
+          <Major>1</Major>
+          <Minor>4</Minor>
+          <Build>0</Build>
+          <Revision>0</Revision>
+        </MinVersion>
+        <MaxVersion>
+          <Major>1</Major>
+          <Minor>4</Minor>
+          <Build>0</Build>
+          <Revision>0</Revision>
+        </MaxVersion>
+        <WarnOnly>true</WarnOnly>
+        <Message>Requires Skin version 1.4.0.0 to 1.4.0.0.</Message>
+        <Name>Skin</Name>
+      </DependencyItem>
+      <DependencyItem>
+        <Type>Installer</Type>
+        <Id />
+        <MinVersion>
+          <Major>1</Major>
+          <Minor>9</Minor>
+          <Build>0</Build>
+          <Revision>0</Revision>
+        </MinVersion>
+        <MaxVersion>
+          <Major>1</Major>
+          <Minor>99</Minor>
+          <Build>999</Build>
+          <Revision>999</Revision>
+        </MaxVersion>
+        <WarnOnly>true</WarnOnly>
+        <Message>Requires Installer version 1.9.0.0 to 1.99.999.999</Message>
+        <Name>Installer</Name>
+      </DependencyItem>
+    </Items>
+  </Dependencies>
+  <PluginDependencies>
+    <Items />
+  </PluginDependencies>
+  <GeneralInfo>
+    <Name>MyVideo Importer</Name>
+    <Id>dba14ebb-b9c8-4996-a015-073da658b94b</Id>
+    <Author>ajs</Author>
+    <HomePage>https://github.com/andrewjswan/mediaportal-myvideo-importer</HomePage>
+    <ForumPage>http://forum.team-mediaportal.com/threads/myvideo-importer-v2-3-x-000.132114/</ForumPage>
+    <UpdateUrl>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/scripts/MyVideoImporter.xml</UpdateUrl>
+    <Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+      <Build>0</Build>
+      <Revision>0</Revision>
+    </Version>
+    <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
+    <VersionDescription>Initial version</VersionDescription>
+    <DevelopmentStatus>Stable</DevelopmentStatus>
+    <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/raw/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
+    <ReleaseDate>2018-02-13T09:06:46</ReleaseDate>
+    <Tags>myvideo, importer</Tags>
+    <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
+    <Params>
+      <Items>
+        <SectionParam Name="Icon">
+          <Value>..\MyVideoImporter\Resources\MyVideoImporter.png</Value>
+          <ValueType>File</ValueType>
+          <Description>The icon file of the package (jpg,png,bmp)</Description>
+        </SectionParam>
+        <SectionParam Name="Online Icon">
+          <Value>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/MyVideoImporter.png</Value>
+          <ValueType>String</ValueType>
+          <Description>The icon file of the package stored online (jpg,png,bmp)</Description>
+        </SectionParam>
+        <SectionParam Name="Configuration file">
+          <Value>%Plugins%\Windows\MyVideoImporter.dll</Value>
+          <ValueType>Template</ValueType>
+          <Description>The file used to configure the extension.
+ If have .exe extension the will be executed
+ If have .dll extension used like MP plugin configuration</Description>
+        </SectionParam>
+        <SectionParam Name="Online Screenshots">
+          <Value>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/screenshots/screenshot01.jpg;https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/screenshots/screenshot02.jpg;https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/screenshots/screenshot03.jpg</Value>
+          <ValueType>String</ValueType>
+          <Description>Online stored screenshot urls separated by ; </Description>
+        </SectionParam>
+        <SectionParam Name="Force to uninstall on update">
+          <Value>YES</Value>
+          <ValueType>Bool</ValueType>
+          <Description>Show dialog and force to uninstall previous version when updating an extension. Should only be disabled if you are using an NSIS/MSI installer.</Description>
+        </SectionParam>
+      </Items>
+    </Params>
+  </GeneralInfo>
+  <UniqueFileList>
+    <Items>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\MyVideoImporter\bin\Release\MyVideoImporter.dll</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{3e0cdaf9-7327-465e-b13e-9bf42591759d}-MyVideoImporter.dll</ZipFileName>
+        <DestinationFilename>%Base%\plugins\Windows\MyVideoImporter.dll</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\language\en.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c2eab1ba-0331-4372-80c0-fe560ec77f5f}-en.xml</ZipFileName>
+        <DestinationFilename>%Language%\MyVideoImporter\en.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\language\ru.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b409cb17-1a68-48d9-976e-e82760ce6e13}-ru.xml</ZipFileName>
+        <DestinationFilename>%Language%\MyVideoImporter\ru.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\common.default.background.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a7e8aca0-3d93-4d4a-b68c-41848f4ef656}-common.default.background.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\common.default.background.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.facade.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{7e71ad9a-eced-4724-9df7-563798154233}-MyVideoImporter.facade.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\MyVideoImporter.facade.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.hiddenmenu.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{7182805e-91ab-46fa-ba7d-8bd80ee6213c}-MyVideoImporter.hiddenmenu.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\MyVideoImporter.hiddenmenu.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.window.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{ca9092c0-3940-426d-920a-eb5391f20d75}-MyVideoImporter.window.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\MyVideoImporter.window.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5505e495-62e3-4870-9f5d-57b17bd733ab}-MyVideoImporter.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\MyVideoImporter.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_ADDED.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c11abd45-8be6-4e34-a470-c4daf85a2240}-importer_ADDED.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_ADDED.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_COMPLETE.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{9d60bd29-6bf6-49fb-88a7-4f5b36967377}-importer_COMPLETE.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_COMPLETE.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_GETTING_IMDB.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{0aacfd2e-7735-4c26-a18a-8d14427501ca}-importer_GETTING_IMDB.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_GETTING_IMDB.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_GETTING_INFO.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{40e1475b-61e1-4a10-8ef8-c3a033a80bda}-importer_GETTING_INFO.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_GETTING_INFO.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_NONE.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{94c23189-a83c-4126-98ac-1b1075fff64c}-importer_NONE.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_NONE.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_QUEUED_IMDB.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{029f9d9c-0115-497e-bd2b-9617d3d52037}-importer_QUEUED_IMDB.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_QUEUED_IMDB.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_QUEUED_INFO.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{3ee71d9e-5fc0-4bf1-a901-b95b396e28ba}-importer_QUEUED_INFO.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_QUEUED_INFO.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_SKIP.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{f408646c-98d1-45ce-84ff-bbb457af373b}-importer_SKIP.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_SKIP.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_WAITING.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8aa2efbe-71c0-41b1-b79f-56c3818ca0b5}-importer_WAITING.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_WAITING.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\MyVideoImporter\Resources\MyVideoImporter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{271cde76-0724-4588-825a-37b5549c9667}-MyVideoImporter.png</ZipFileName>
+        <DestinationFilename />
+      </FileItem>
+    </Items>
+  </UniqueFileList>
+  <ProjectSettings>
+    <FolderGroups>
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName />
+        <ZipFileName>Installer{CopyFile}\{b0baedb9-8118-4b89-9e91-e7a6fcc6e5ae}-</ZipFileName>
+        <DestinationFilename>%Skin%\Titan</DestinationFilename>
+        <Folder>..\Installer\skin\Titan</Folder>
+        <Group>Titan</Group>
+        <Recursive>true</Recursive>
+      </FolderGroup>
+    </FolderGroups>
+    <ProjectFilename>MyVideoImporter.xmp2</ProjectFilename>
+    <UpdatePath1>MyVideoImporter-{VERSION}.xml</UpdatePath1>
+    <UpdatePath2 />
+    <UpdatePath3 />
+  </ProjectSettings>
+  <IsSkin>false</IsSkin>
+</PackageClass>

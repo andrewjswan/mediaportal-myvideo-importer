@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<window>
+  <id>99555</id>
+  <defaultcontrol>50</defaultcontrol>
+  <allowoverlay>yes</allowoverlay>
+  <define>#header.label:</define>
+  <define>#useSelectedFanart:Yes</define>
+  <define>#useRandomMoviesUserFanart:Yes</define>
+  <define>#useRandomMoviesScraperFanart:Yes</define>
+
+  <controls>
+ 
+    <!-- Main -->
+
+    <import>MyVideoImporter.window.xml</import>
+
+    <control>
+      <id>0</id>
+      <type>image</type>
+      <posX>66</posX>
+      <posY>39</posY>
+      <width>60</width>
+      <height>56</height>
+      <texture>icon_movies.png</texture>
+      <visible>control.isvisible(50)</visible>
+      <animation effect="fade" time="250">WindowOpen</animation>
+      <animation effect="fade" time="250">WindowClose</animation>
+    </control>
+  
+    <control>
+      <id>0</id>
+      <type>label</type>
+      <posX>144</posX>
+      <posY>38</posY>
+      <width>855</width>
+      <font>TitanLight22</font>
+      <textcolor>ffffff</textcolor>
+      <label>#importer.header</label>
+      <align>left</align>
+      <visible>control.IsVisible(50)</visible>
+      <animation effect="fade" time="250">WindowOpen</animation>
+      <animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+    <import>common.time.xml</import>
+  
+	<!--            :: LISTVIEW ::            -->
+
+	<!--            :: INFO LABELS ::            -->
+	
+    <!-- Grabber info -->
+
+	<control Style="InfoLabel">
+		<description>Status Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>345</posY>
+		<label>#(string.rtrim(L(126),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+	</control>
+
+	<control Style="InfoValueSmall">
+		<description>Status Value</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>345</posY>
+		<label>#importer.textstatus</label>
+		<width>380</width>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>File Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>385</posY>
+		<label>#(string.rtrim(L(863),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>File Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>385</posY>
+		<label>#importer.file</label>
+		<width>380</width>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>Progress Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>423</posY>
+		<label>#(string.rtrim(L(8033),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.progress,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>Progress Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>423</posY>
+		<width>380</width>
+		<label>#importer.progress</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.progress,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>Progress Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>461</posY>
+		<label>Grabber</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.title,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>Progress Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>461</posY>
+		<width>380</width>
+		<label>#importer.grabber.title (#importer.grabber.year)</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.title,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>IMDB Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>499</posY>
+		<label>IMDB</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.imdbtitle,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>IMDB Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>499</posY>
+		<width>380</width>
+		<label>#importer.grabber.imdbtitle (#importer.grabber.imdbyear) #importer.grabber.imdbid</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.imdbtitle,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>Fuzzy Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>538</posY>
+		<label>Fuzzy match</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.distance,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>Fuzzy Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>370</posX>
+		<posY>538</posY>
+		<width>380</width>
+		<label>#importer.grabber.distance</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.distance,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control>
+		<description>Fuzzy Icon</description>
+		<type>image</type>
+		<id>0</id>
+		<posX>320</posX>
+		<posY>534</posY>
+		<width>50</width>
+		<height>50</height>
+        <keepaspectratio>yes</keepaspectratio>
+		<texture>#(switch(eq(#importer.grabber.nearest,'true'),'importer_COMPLETE.png',eq(1,1),'importer_NONE.png'))</texture>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+!string.equals(#importer.hasmediainfo,true)+!string.equals(#importer.grabber.distance,)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+    <!-- Movie info -->
+
+	<control Style="InfoLabel">
+		<description>Release Date Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>345</posY>
+		<label>#(string.rtrim(L(172),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+	</control>
+
+	<control Style="InfoValueSmall">
+		<description>Release Date Value</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>345</posY>
+		<label>#year</label>
+		<width>380</width>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+
+	<control Style="InfoLabel">
+		<description>Genre Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>385</posY>
+		<label>#(string.rtrim(L(135),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>Genre Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>385</posY>
+		<label>#genre</label>
+		<width>380</width>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoLabel">
+		<description>Director Label</description>
+		<type>label</type>
+		<id>0</id>
+		<posX>105</posX>
+		<posY>419</posY>
+		<label>#(string.rtrim(L(199),' :'))</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	
+	<control Style="InfoValueSmall">
+		<description>Director Value</description>
+		<type>fadelabel</type>
+		<id>0</id>
+		<posX>330</posX>
+		<posY>419</posY>
+		<width>380</width>
+		<label>#director</label>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+    </control>
+	   
+	<control Style="textBox">
+		<description>Plot</description>
+		<type>textboxscrollup</type>
+		<id>1025</id>
+		<posX>105</posX>
+		<posY>461</posY>
+		<height>500</height>
+		<width>600</width>
+		<label>#plotoutline</label>
+		<onleft>1026</onleft>
+		<onright>1026</onright>
+		<onup>1026</onup>
+		<ondown>1026</ondown>
+		<seperator>---------------------------------------------------------------------------------------------------------</seperator>
+		<visible>[facadeview.list|facadeview.playlist]+Control.IsVisible(50)+string.equals(#importer.hasmediainfo,true)</visible>
+		<animation effect="fade" time="250">WindowOpen</animation>
+		<animation effect="fade" time="250">WindowClose</animation>
+	</control>
+	
+    <!-- Common -->
+
+    <import>MyVideoImporter.hiddenmenu.xml</import>
+    <import>MyVideoImporter.facade.xml</import>  
+    <import>common.overlay.xml</import>
+  </controls>
+</window>

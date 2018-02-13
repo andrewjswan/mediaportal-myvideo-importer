@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- English (US) -->
+<!-- Note: English is the fallback for any strings not found in other languages -->
+<!-- Last Updated: 09th February 2018 -->
+<strings>
+ 
+ <!-- GUI -->
+  <string Field="IMDBNotFound">No IMDB info found!</string>
+  <string Field="FilesNotFound">No new Movie. Rescan?</string>
+
+</strings>
