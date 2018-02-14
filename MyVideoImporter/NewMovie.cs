@@ -30,9 +30,9 @@ namespace MyVideoImporter
     public string FileName
     {
       get { return _filename; }
-      set 
-      { 
-        _filename = value; 
+      set
+      {
+        _filename = value;
 
         _moviedetails.Path = Path.GetDirectoryName(_filename);
         _moviedetails.File = Path.GetFileName(_filename);
@@ -54,8 +54,8 @@ namespace MyVideoImporter
     public Utils.ImporterStatus Status
     {
       get { return _status; }
-      set 
-      { 
+      set
+      {
         if (_status != value)
         {
           _status = value;
@@ -105,9 +105,9 @@ namespace MyVideoImporter
     public int Selected
     {
       get { return _selected; }
-      set 
-      { 
-        _selected = value; 
+      set
+      {
+        _selected = value;
 
         if (_selected > -1 && _selected < _grabbermovies.Count)
         {
@@ -143,20 +143,20 @@ namespace MyVideoImporter
 
     public bool IsNeedRescan
     {
-      get { return (_status == Utils.ImporterStatus.NONE || 
-                    _status == Utils.ImporterStatus.WAITING || 
+      get { return (_status == Utils.ImporterStatus.NONE ||
+                    _status == Utils.ImporterStatus.WAITING ||
                     _status == Utils.ImporterStatus.ADDED); }
     }
 
     public bool IsGettingInfo
     {
-      get { return (_status == Utils.ImporterStatus.GETTING_IMDB || 
+      get { return (_status == Utils.ImporterStatus.GETTING_IMDB ||
                     _status == Utils.ImporterStatus.GETTING_INFO); }
     }
 
     public bool IsScanning
     {
-      get { return (_status == Utils.ImporterStatus.GETTING_IMDB || 
+      get { return (_status == Utils.ImporterStatus.GETTING_IMDB ||
                     _status == Utils.ImporterStatus.GETTING_INFO ||
                     _status == Utils.ImporterStatus.QUEUED_IMDB ||
                     _status == Utils.ImporterStatus.QUEUED_INFO); }
@@ -168,7 +168,7 @@ namespace MyVideoImporter
     }
 
     public NewMovie()
-    {      
+    {
       _status = Utils.ImporterStatus.NONE;
       _selected = -1;
       _moviedetails = new IMDBMovie();
@@ -256,7 +256,7 @@ namespace MyVideoImporter
       string file;
       string path = movieDetails.Path;
       string filename = movieDetails.File;
-      
+
       if (path != string.Empty)
       {
         if (path.EndsWith(@"\"))
@@ -264,13 +264,13 @@ namespace MyVideoImporter
           path = path.Substring(0, path.Length - 1);
           movieDetails.Path = path;
         }
-        
+
         if (filename.StartsWith(@"\"))
         {
           filename = filename.Substring(1);
           movieDetails.File = filename;
         }
-        
+
         file = path + Path.DirectorySeparatorChar + filename;
       }
       else
@@ -279,7 +279,7 @@ namespace MyVideoImporter
       }
 
       int id = movieDetails.ID;
-      
+
       if (id < 0)
       {
         logger.Info("Adding file to Database: {0}", file);
@@ -287,7 +287,7 @@ namespace MyVideoImporter
         VirtualDirectory dir = new VirtualDirectory();
         dir.SetExtensions(MediaPortal.Util.Utils.VideoExtensions);
         List<GUIListItem> items = dir.GetDirectoryUnProtectedExt(path, true);
-        
+
         foreach (GUIListItem item in items)
         {
           if (item.IsFolder)
@@ -327,6 +327,18 @@ namespace MyVideoImporter
       }
     }
 
+    private void CheckIMDBDetails()
+    {
+      if (_moviedetails.ID == -1 || _moviedetails.IsEmpty)
+      {
+        VideoDatabase.DeleteMovieInfoById(_moviedetails.ID);
+        Status = Utils.ImporterStatus.ERROR;
+      }
+      else
+      {
+        Status = Utils.ImporterStatus.COMPLETE;
+      }
+    }
     #endregion
 
     #region IMDB.IProgress
@@ -432,7 +444,7 @@ namespace MyVideoImporter
 
     public bool OnDetailsEnd(IMDBFetcher fetcher)
     {
-      Status = Utils.ImporterStatus.COMPLETE;
+      CheckIMDBDetails();
       logger.Debug("OnDetailsEnd: {0} - {1}", _status, _filename);
       Utils.SendMovieRefresh();
       return true;

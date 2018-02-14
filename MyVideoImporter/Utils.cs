@@ -248,6 +248,8 @@ namespace MyVideoImporter
           return Translation.StatusWAITING;
         case ImporterStatus.COMPLETE:
           return Translation.StatusCOMPLETE;
+        case ImporterStatus.ERROR:
+          return Translation.StatusERROR;
         case ImporterStatus.NONE:
           return Translation.StatusNONE;
       }
@@ -298,6 +300,7 @@ namespace MyVideoImporter
       GETTING_INFO,
       COMPLETE,
       SKIP,
+      ERROR,
       NONE,
     }
 

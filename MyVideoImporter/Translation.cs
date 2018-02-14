@@ -236,6 +236,7 @@ namespace MyVideoImporter
     public static string StatusGETTING_IMDB = "Searching";
     public static string StatusGETTING_INFO = "Getting details";
     public static string StatusCOMPLETE = "Complete";
+    public static string StatusERROR = "ERROR";
     public static string StatusSKIP = "Skip";
     public static string StatusNONE = "None";
 
