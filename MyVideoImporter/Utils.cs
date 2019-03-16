@@ -29,6 +29,7 @@ namespace MyVideoImporter
     #region Settings
     private const string ConfigFilename = "MyVideoImporter.xml";
 
+    public static bool AutoSearch = true;
     public static bool ApproveIfOne = false;
     public static bool ApproveForNearest = false;
     public static int NearestFactor = 20;
@@ -119,6 +120,7 @@ namespace MyVideoImporter
 
     public static void LoadSettings()
     {
+      AutoSearch = true;
       ApproveIfOne = false;
       ApproveForNearest = false;
       NearestFactor = 20;
@@ -129,6 +131,7 @@ namespace MyVideoImporter
         #region Load settings
         using (MediaPortal.Profile.Settings xmlreader = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, ConfigFilename)))
         {
+          AutoSearch = xmlreader.GetValueAsBool("Fetcher", "AutoSearch", AutoSearch);
           ApproveIfOne = xmlreader.GetValueAsBool("Fetcher", "ApproveIfOne", ApproveIfOne);
           ApproveForNearest = xmlreader.GetValueAsBool("Fetcher", "ApproveForNearest", ApproveForNearest);
           NearestFactor = xmlreader.GetValueAsInt("Fetcher", "NearestFactor", NearestFactor);
@@ -213,10 +216,10 @@ namespace MyVideoImporter
       }
     }
 
-    internal static void UpdateImporterProperties(int count, bool hasnew)
+    internal static void UpdateImporterProperties(int count, bool hasuncomplete)
     {
       SetProperty("#importer.header", Translation.Header);
-      SetProperty("#importer.hasnew", hasnew ? "true" : "false");
+      SetProperty("#importer.hasuncomplete", hasuncomplete ? "true" : "false");
       SetProperty("#importer.hasmovies", count > 0 ? "true" : "false");
       SetProperty("#importer.count", count.ToString());
     }

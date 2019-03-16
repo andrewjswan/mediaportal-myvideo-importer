@@ -3,6 +3,7 @@
 using MediaPortal.Configuration;
 using MediaPortal.Dialogs;
 using MediaPortal.GUI.Library;
+using MediaPortal.GUI.Video;
 using MediaPortal.Util;
 using MediaPortal.Video.Database;
 
@@ -295,7 +296,11 @@ namespace MyVideoImporter
           NewMovie movie = item.AlbumInfoTag as NewMovie;
           if (movie != null)
           {
-            if (SelectYesNo(item.Label))
+            if (movie.Status == Utils.ImporterStatus.COMPLETE)
+            {
+              ShowInfo(item);
+            }
+            else if (SelectYesNo(item.Label))
             {
               movie.Selected = item.ItemId;
               movie.Status = Utils.ImporterStatus.QUEUED_INFO;
@@ -357,13 +362,13 @@ namespace MyVideoImporter
       dlg.Reset();
       dlg.SetHeading(498); // Menu
 
+      dlg.AddLocalizedString(6032); // Search by title
       if (viewLevel == Utils.ViewLevel.Files)
       {
-     
       }
-      else
+      else if (movie.Status == Utils.ImporterStatus.COMPLETE)
       {
-        dlg.AddLocalizedString(6032); // Search by title
+        dlg.AddLocalizedString(368); //IMDB      
       }
 
       dlg.DoModal(GetID);
@@ -377,17 +382,31 @@ namespace MyVideoImporter
       {
         case 6032: // Search by title 
           string moviename = movie.SearchTitle;
+          if (moviename == "unknown")
+          {
+            moviename = MediaPortal.Util.Utils.GetFilename(movie.FileName, true);
+          }
           if (VirtualKeyboard.GetKeyboard(ref moviename, GetID))
           {
             if (!string.IsNullOrEmpty(moviename))
             {
               movie.SearchTitle = moviename;
               movie.Status = Utils.ImporterStatus.QUEUED_IMDB;
-              item.Label = Translation.IMDBScanning;
-              item.TVTag = Utils.ItemType.Search;
-              SetStatus(ref item);
+              if (viewLevel == Utils.ViewLevel.Files)
+              {
+                SetStatus(ref item, movie);
+              }
+              else
+              {
+                item.Label = Translation.IMDBScanning;
+                item.TVTag = Utils.ItemType.Search;
+                SetStatus(ref item);
+              }
             }
           }
+          break;
+        case 368: // IMDB
+          ShowInfo(item);
           break;
       }
     }
@@ -492,6 +511,7 @@ namespace MyVideoImporter
             _item.Label = Translation.FilesNotFound;
             _item.TVTag = Utils.ItemType.Rescan;
           }
+          _item.Label2 = string.Empty;
           _item.IsFolder = true;
           _item.OnItemSelected += OnItemSelected;
           SetStatus(ref _item);
@@ -501,7 +521,8 @@ namespace MyVideoImporter
       else
       {
         // module = module + ": " + item.Label;
-        module = item.Label;
+        // module = item.Label;
+        module = Translation.Movie;
 
         viewLevel = Utils.ViewLevel.Movies;
         parentItem = item;
@@ -532,6 +553,7 @@ namespace MyVideoImporter
               _item = new GUIListItem();
               _item.ItemId = -1;
               _item.Label = Translation.Stop;
+              _item.Label2 = string.Empty;
               _item.TVTag = Utils.ItemType.Stop;
               _item.AlbumInfoTag = newmovie;
               _item.OnItemSelected += OnItemSelected;
@@ -553,6 +575,7 @@ namespace MyVideoImporter
               _item.Label = Translation.IMDBNotFound;
               _item.TVTag = Utils.ItemType.Research;
             }
+            _item.Label2 = string.Empty;
             _item.OnItemSelected += OnItemSelected;
             _item.AlbumInfoTag = newmovie;
             SetStatus(ref _item, newmovie);
@@ -563,6 +586,7 @@ namespace MyVideoImporter
         {
           _item = new GUIListItem();
           _item.Label = Translation.IMDBNotFound;
+          _item.Label2 = string.Empty;
           _item.TVTag = Utils.ItemType.Research;
           _item.OnItemSelected += OnItemSelected;
           SetStatus(ref _item);
@@ -570,9 +594,10 @@ namespace MyVideoImporter
         }
       }
       facadeLayout.SelectedListItemIndex = newSelectedIndex;
+      FillProperties(GetSelectedItem());
 
       Utils.SetProperty("#currentmodule", module);
-      Utils.SetProperty("#itemcount",count.ToString());
+      Utils.SetProperty("#itemcount", count.ToString());
     }
 
     private void UpdateList()
@@ -634,14 +659,41 @@ namespace MyVideoImporter
         return;
       }
 
-      for (int i = 0; i < facadeLayout.Count; ++i)
+      if (videoImporter.MovieList.Count > 0)
       {
-        GUIListItem item = facadeLayout[i];
-        NewMovie movie = item.AlbumInfoTag as NewMovie;
-        item.Label = movie.Title;
-        item.Label2 = Utils.GetStatus(movie.Status);
-        SetStatus(ref item, movie);
+        for (int i = 0; i < facadeLayout.Count; ++i)
+        {
+          GUIListItem item = facadeLayout[i];
+          NewMovie movie = videoImporter.MovieList[i]; // item.AlbumInfoTag as NewMovie;
+          item.Label = movie.Title;
+          item.Label2 = Utils.GetStatus(movie.Status);
+          item.AlbumInfoTag = movie;
+          SetStatus(ref item, movie);
+        }
       }
+      else
+      {
+        GUIListItem _item = GetSelectedItem();
+        if (_item == null)
+        {
+          return;
+        }
+
+        if (videoImporter.IsScanning)
+        {
+          _item.Label = Translation.IMDBScanning;
+          _item.TVTag = Utils.ItemType.Search;
+        }
+        else
+        {
+          _item.Label = Translation.FilesNotFound;
+          _item.TVTag = Utils.ItemType.Rescan;
+        }
+        _item.Label2 = string.Empty;
+        _item.IsFolder = true;
+        SetStatus(ref _item);
+      }
+      FillProperties(GetSelectedItem());
     }
 
     private void UpdateMovies()
@@ -661,6 +713,50 @@ namespace MyVideoImporter
       {
         LoadList(item);
         return;
+      }
+
+      if (item == null)
+      {
+        return;
+      }
+
+      NewMovie newmovie = item.AlbumInfoTag as NewMovie;
+      if (newmovie != null)
+      {
+        if (newmovie.GrabberMovies.Count > 0)
+        {
+          for (int i = 0; i < newmovie.GrabberMovies.Count; ++i)
+          {
+            GUIListItem _item = facadeLayout[i];
+            _item.Label = newmovie.GrabberMovies[i].Title;
+            _item.Label2 = newmovie.Fetcher[i].Database;
+            _item.TVTag = Utils.ItemType.IMDB;
+            SetStatus(ref _item, newmovie);
+          }
+        }
+        else
+        {
+          if (newmovie.IsScanning)
+          {
+            item.Label = Translation.IMDBScanning;
+            item.Label2 = string.Empty;
+            item.TVTag = Utils.ItemType.Search;
+          }
+          else
+          {
+            item.Label = Translation.IMDBNotFound;
+            item.Label2 = string.Empty;
+            item.TVTag = Utils.ItemType.Research;
+          }
+          SetStatus(ref item, newmovie);
+        }
+      }
+      else
+      {
+        item.Label = Translation.IMDBNotFound;
+        item.Label2 = string.Empty;
+        item.TVTag = Utils.ItemType.Research;
+        SetStatus(ref item);
       }
     }
 
@@ -805,6 +901,7 @@ namespace MyVideoImporter
     {
       if (item == null)
       {
+        ClearProperties();
         return;
       }
 
@@ -959,6 +1056,35 @@ namespace MyVideoImporter
       Utils.SetProperty("#importer.grabber.distance", string.Empty);
       Utils.SetProperty("#importer.grabber.nearest", string.Empty);
       Utils.SetProperty("#importer.grabber.equals", string.Empty);
+    }
+
+    private void ShowInfo(GUIListItem item)
+    {
+      if (item == null)
+      {
+        return;
+      }
+
+      try
+      {
+        NewMovie newmovie = item.AlbumInfoTag as NewMovie;
+        if (newmovie != null)
+        {
+          if (newmovie.MovieDetails != null)
+          {
+            IMDBMovie movie = (IMDBMovie) newmovie.MovieDetails;
+            // Open video info screen
+            GUIVideoInfo videoInfo = (GUIVideoInfo) GUIWindowManager.GetWindow((int) GUIWindow.Window.WINDOW_VIDEO_INFO);
+            videoInfo.Movie = movie;
+
+            GUIWindowManager.ActivateWindow((int) GUIWindow.Window.WINDOW_VIDEO_INFO);
+          }
+        }
+      }
+      catch (System.Exception ex)
+      {
+        logger.Error("ShowInfo: " + ex.ToString());
+      }
     }
 
     private bool SelectYesNo(string label)

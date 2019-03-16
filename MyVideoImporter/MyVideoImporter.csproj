@@ -32,22 +32,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.GUIPlugins">
-      <HintPath>External\Common.GUIPlugins.dll</HintPath>
+      <HintPath>..\External\Common.GUIPlugins.dll</HintPath>
     </Reference>
     <Reference Include="Common.Utils">
-      <HintPath>External\Common.Utils.dll</HintPath>
+      <HintPath>..\External\Common.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Core">
-      <HintPath>External\Core.dll</HintPath>
+      <HintPath>..\External\Core.dll</HintPath>
     </Reference>
     <Reference Include="Databases">
-      <HintPath>External\Databases.dll</HintPath>
+      <HintPath>..\External\Databases.dll</HintPath>
     </Reference>
     <Reference Include="Dialogs">
-      <HintPath>External\Dialogs.dll</HintPath>
+      <HintPath>..\External\Dialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIVideos">
+      <HintPath>..\External\GUIVideos.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>External\NLog.dll</HintPath>
+      <HintPath>..\External\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,7 +62,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Utils">
-      <HintPath>External\Utils.dll</HintPath>
+      <HintPath>..\External\Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

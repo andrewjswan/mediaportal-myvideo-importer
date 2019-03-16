@@ -63,6 +63,7 @@ namespace MyVideoImporter
           {
             case Utils.ImporterStatus.ADDED:
             case Utils.ImporterStatus.WAITING:
+            case Utils.ImporterStatus.ERROR:
             case Utils.ImporterStatus.NONE:
               _selected = -1;
               _progresspercent = 0;

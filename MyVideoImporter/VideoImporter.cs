@@ -214,6 +214,28 @@ namespace MyVideoImporter
         }
       }
     }
+
+    public bool HasUnComplete()
+    {
+      if (movielist == null || movielist.Count <= 0)
+      {
+        return false;
+      }
+
+      bool result = false;
+      lock (((ICollection)movielist).SyncRoot)
+      {
+        foreach (NewMovie movie in movielist)
+        {
+          if (!movie.IsComplete)
+          {
+            result = true;
+          }
+        }
+      }
+      return result;
+    }
+
     #endregion
 
     #region File System Scanner
@@ -285,6 +307,7 @@ namespace MyVideoImporter
               }
             }
           }
+          Utils.UpdateImporterProperties(movielist.Count, HasUnComplete());
         }
       }
       catch (ThreadAbortException)
@@ -494,7 +517,7 @@ namespace MyVideoImporter
           movielist.Add(newmovie);
 
           logger.Debug("Add new file {0} to IMDB fetch queue.", filename);
-          Utils.UpdateImporterProperties(movielist.Count, true);
+          Utils.UpdateImporterProperties(movielist.Count, HasUnComplete());
         }
       }
     }
@@ -509,7 +532,7 @@ namespace MyVideoImporter
           newmovie.NewFileName = newfilename;
 
           logger.Debug("Watcher rename file {0} -> {1} in the file list.", filename, newfilename);
-          Utils.UpdateImporterProperties(movielist.Count, false);
+          Utils.UpdateImporterProperties(movielist.Count, HasUnComplete());
         }
       }
     }
@@ -527,7 +550,7 @@ namespace MyVideoImporter
           movielist.Remove(newmovie);
 
           logger.Debug("Watcher remove {0} from the file list.", filename);
-          Utils.UpdateImporterProperties(movielist.Count, false);
+          Utils.UpdateImporterProperties(movielist.Count, HasUnComplete());
         }
       }
     }

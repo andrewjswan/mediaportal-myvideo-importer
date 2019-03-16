@@ -217,6 +217,7 @@ namespace MyVideoImporter
     // Skin
     public static string Header = "Video Importer";
     public static string Base = "IMDB";
+    public static string Movie = "Movie";
 
     // GUI
     public static string IMDBNotFound = "No IMDB info found! Rescan?";

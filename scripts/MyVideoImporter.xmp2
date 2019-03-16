@@ -156,6 +156,13 @@
               <ZipFileName>Installer{CopyFile}\{8aa2efbe-71c0-41b1-b79f-56c3818ca0b5}-importer_WAITING.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\importer_WAITING.png</DestinationFilename>
             </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\importer_ERROR.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{93915aed-17ab-414b-b7f2-201eebd88dba}-importer_ERROR.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\importer_ERROR.png</DestinationFilename>
+            </FileItem>
           </Items>
         </Files>
       </GroupItem>
@@ -346,10 +353,10 @@ cul8er</Value>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
-    <VersionDescription>Initial version</VersionDescription>
+    <VersionDescription>Cosmetic</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
-    <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/raw/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2018-02-13T09:06:46</ReleaseDate>
+    <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
+    <ReleaseDate>2019-03-16T09:06:46</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
@@ -504,6 +511,13 @@ cul8er</Value>
         <LocalFileName>..\Installer\skin\Titan\Media\importer_WAITING.png</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{8aa2efbe-71c0-41b1-b79f-56c3818ca0b5}-importer_WAITING.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\importer_WAITING.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\importer_ERROR.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{93915aed-17ab-414b-b7f2-201eebd88dba}-importer_ERROR.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\importer_ERROR.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />

@@ -108,16 +108,16 @@ namespace MyVideoImporter
         return;
       }
 
-      string wTitle = title.Replace(" / ", string.Empty).Replace(" - ", string.Empty);
-      movietitle = movietitle.Replace(" / ", string.Empty).Replace(" - ", string.Empty);
+      string fuzzytitle = _grabbertitle.Replace(" / ", string.Empty).Replace(" - ", string.Empty).Replace(" ", string.Empty).ToUpperInvariant();
+      string fuzzymovie = movietitle.Replace(" / ", string.Empty).Replace(" - ", string.Empty).Replace(" ", string.Empty).ToUpperInvariant();
       if (!string.IsNullOrEmpty(_grabberyear))
       {
-        wTitle = wTitle + "("+_grabberyear+")";
+        fuzzytitle = fuzzytitle + "("+_grabberyear+")";
       }
-      _distance = Levenshtein.Match(wTitle.ToLowerInvariant(), movietitle.ToLowerInvariant());
-      _equals = wTitle.ToLowerInvariant().Equals(movietitle.ToLowerInvariant());
+      _distance = Levenshtein.Match(fuzzytitle, fuzzymovie);
+      _equals = fuzzytitle.Equals(fuzzymovie);
 
-      logger.Debug("Added: {0}: Nearest factor: {1} Equals: {2}", _title, _distance, _equals);
+      logger.Debug("Added: {0}: Equals: {1}, Nearest factor: {2} [{3}][{4}]", _title, _equals, _distance, fuzzytitle, fuzzymovie);
     }
   }
 }
