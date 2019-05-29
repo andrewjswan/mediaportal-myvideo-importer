@@ -163,6 +163,20 @@
               <ZipFileName>Installer{CopyFile}\{93915aed-17ab-414b-b7f2-201eebd88dba}-importer_ERROR.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\importer_ERROR.png</DestinationFilename>
             </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\common.default.background.overlay.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{8f512241-65a1-46d3-8cc3-3eea7bb17ab5}-common.default.background.overlay.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\common.default.background.overlay.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>
+            </FileItem>
           </Items>
         </Files>
       </GroupItem>
@@ -353,10 +367,11 @@ cul8er</Value>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
-    <VersionDescription>Cosmetic</VersionDescription>
+    <VersionDescription>Cosmetic
+Titan skin updated</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2019-03-16T09:06:46</ReleaseDate>
+    <ReleaseDate>2019-05-29T09:06:46</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
@@ -518,6 +533,20 @@ cul8er</Value>
         <LocalFileName>..\Installer\skin\Titan\Media\importer_ERROR.png</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{93915aed-17ab-414b-b7f2-201eebd88dba}-importer_ERROR.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\importer_ERROR.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\common.default.background.overlay.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8f512241-65a1-46d3-8cc3-3eea7bb17ab5}-common.default.background.overlay.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\common.default.background.overlay.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
