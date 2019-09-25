@@ -117,14 +117,14 @@
           <Major>1</Major>
           <Minor>0</Minor>
           <Build>1</Build>
-          <Revision>7</Revision>
+          <Revision>8</Revision>
         </Version>
         <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
         <VersionDescription>Cosmetic
 Titan skin updated</VersionDescription>
         <DevelopmentStatus>Stable</DevelopmentStatus>
-        <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-1.0.1.7.mpe1</OnlineLocation>
-        <ReleaseDate>2019-05-29T11:54:35.7663572+03:00</ReleaseDate>
+        <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-1.0.1.8.mpe1</OnlineLocation>
+        <ReleaseDate>2019-09-25T10:04:48.6272472+03:00</ReleaseDate>
         <Tags>myvideo, importer</Tags>
         <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
         <Params>
