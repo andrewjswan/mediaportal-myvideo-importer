@@ -65,30 +65,30 @@
               <ZipFileName>Installer{CopyFile}\{a7e8aca0-3d93-4d4a-b68c-41848f4ef656}-common.default.background.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\common.default.background.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.facade.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{7e71ad9a-eced-4724-9df7-563798154233}-MyVideoImporter.facade.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.facade.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.hiddenmenu.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{7182805e-91ab-46fa-ba7d-8bd80ee6213c}-MyVideoImporter.hiddenmenu.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.hiddenmenu.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.window.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{ca9092c0-3940-426d-920a-eb5391f20d75}-MyVideoImporter.window.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.window.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{5505e495-62e3-4870-9f5d-57b17bd733ab}-MyVideoImporter.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.xml</DestinationFilename>
@@ -170,9 +170,9 @@
               <ZipFileName>Installer{CopyFile}\{8f512241-65a1-46d3-8cc3-3eea7bb17ab5}-common.default.background.overlay.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\common.default.background.overlay.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
-              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>
@@ -366,12 +366,11 @@ cul8er</Value>
       <Build>0</Build>
       <Revision>0</Revision>
     </Version>
-    <ExtensionDescription>MyVideo Online Importer</ExtensionDescription>
-    <VersionDescription>Cosmetic
-Titan skin updated</VersionDescription>
+    <ExtensionDescription>MyVideo Automatic Importer</ExtensionDescription>
+    <VersionDescription>Bug fixes</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2019-05-29T09:06:46</ReleaseDate>
+    <ReleaseDate>2020-05-09T09:06:46</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
@@ -436,30 +435,30 @@ Titan skin updated</VersionDescription>
         <ZipFileName>Installer{CopyFile}\{a7e8aca0-3d93-4d4a-b68c-41848f4ef656}-common.default.background.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\common.default.background.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.facade.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{7e71ad9a-eced-4724-9df7-563798154233}-MyVideoImporter.facade.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.facade.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.hiddenmenu.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{7182805e-91ab-46fa-ba7d-8bd80ee6213c}-MyVideoImporter.hiddenmenu.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.hiddenmenu.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.window.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{ca9092c0-3940-426d-920a-eb5391f20d75}-MyVideoImporter.window.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.window.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{5505e495-62e3-4870-9f5d-57b17bd733ab}-MyVideoImporter.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.xml</DestinationFilename>
@@ -541,9 +540,9 @@ Titan skin updated</VersionDescription>
         <ZipFileName>Installer{CopyFile}\{8f512241-65a1-46d3-8cc3-3eea7bb17ab5}-common.default.background.overlay.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\common.default.background.overlay.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>

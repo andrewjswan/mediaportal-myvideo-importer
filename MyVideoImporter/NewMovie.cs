@@ -254,6 +254,12 @@ namespace MyVideoImporter
 
     private void GetInfoFromIMDB(ref IMDBMovie movieDetails, bool fuzzyMatch)
     {
+      if (movieDetails == null)
+      {
+        Status = Utils.ImporterStatus.NONE;
+        return;
+      }
+
       string file;
       string path = movieDetails.Path;
       string filename = movieDetails.File;
