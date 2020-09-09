@@ -707,6 +707,10 @@ namespace MyVideoImporter
       {
         return;
       }
+      if (videoImporter.MovieList == null)
+      {
+        return;
+      }
 
       GUIListItem item = GetSelectedItem();
       if (facadeLayout.Count != videoImporter.MovieList.Count)
@@ -723,7 +727,7 @@ namespace MyVideoImporter
       NewMovie newmovie = item.AlbumInfoTag as NewMovie;
       if (newmovie != null)
       {
-        if (newmovie.GrabberMovies.Count > 0)
+        if (newmovie.GrabberMovies != null && newmovie.GrabberMovies.Count > 0)
         {
           for (int i = 0; i < newmovie.GrabberMovies.Count; ++i)
           {
@@ -762,6 +766,11 @@ namespace MyVideoImporter
 
     private void SetStatus(ref GUIListItem item)
     {
+      if (item == null)
+      {
+        return;
+      }
+
       Utils.ItemType _itemType;
       if (item.TVTag == null)
       {
@@ -801,6 +810,10 @@ namespace MyVideoImporter
       }
 
       // Movie items ...
+      if (item == null)
+      {
+        return;
+      }
 
       // Complete
       item.IsPlayed = (movie.Status == Utils.ImporterStatus.COMPLETE);
@@ -941,7 +954,7 @@ namespace MyVideoImporter
       string strThumb = MediaPortal.Util.Utils.GetLargeCoverArtName(Thumbs.MovieTitle, movie.Title + "{" + movie.ID + "}");
       System.Int32 votes = 0;
       string strVotes = string.Empty;
-      if (System.Int32.TryParse(movie.Votes.Replace(".", string.Empty).Replace(",", string.Empty), out votes))
+      if (!string.IsNullOrEmpty(movie.Votes) && System.Int32.TryParse(movie.Votes.Replace(".", string.Empty).Replace(",", string.Empty), out votes))
       {
         strVotes = System.String.Format("{0:N0}", votes);
       }
@@ -951,24 +964,24 @@ namespace MyVideoImporter
       Utils.SetProperty("#imdbnumber", movie.IMDBNumber);
       Utils.SetProperty("#director", movie.Director);
       Utils.SetProperty("#thumb", strThumb);
-      Utils.SetProperty("#genre", movie.Genre.Replace(" /", ","));
+      Utils.SetProperty("#genre", !string.IsNullOrEmpty(movie.Genre) ? movie.Genre.Replace(" /", ",") : string.Empty);
       Utils.SetProperty("#plotoutline", movie.Plot);
       Utils.SetProperty("#plotoutline", movie.PlotOutline);
       Utils.SetProperty("#rating", movie.Rating.ToString());
       Utils.SetProperty("#strrating", movie.Rating.ToString(CultureInfo.CurrentCulture) + "/10");
       Utils.SetProperty("#tagline", movie.TagLine);
       Utils.SetProperty("#votes", strVotes);
-      Utils.SetProperty("#credits", movie.WritingCredits.Replace(" /", ","));
+      Utils.SetProperty("#credits", !string.IsNullOrEmpty(movie.WritingCredits) ? movie.WritingCredits.Replace(" /", ",") : string.Empty);
       Utils.SetProperty("#year", ((movie.Year <= 1900) ? string.Empty : movie.Year.ToString()));
       Utils.SetProperty("#mpaarating", MediaPortal.Util.Utils.MakeFileName(movie.MPARating));
       Utils.SetProperty("#mpaatext", movie.MPAAText);
-      Utils.SetProperty("#studios", movie.Studios.Replace(" /", ","));
+      Utils.SetProperty("#studios", !string.IsNullOrEmpty(movie.Studios) ? movie.Studios.Replace(" /", ",") : string.Empty);
       Utils.SetProperty("#country", movie.Country);
       Utils.SetProperty("#language", movie.Language);
       Utils.SetProperty("#tmdbnumber", movie.TMDBNumber);
       Utils.SetProperty("#localdbnumber", movie.LocalDBNumber);
-      Utils.SetProperty("#moviecollection", movie.MovieCollection.Replace(" /", ","));
-      Utils.SetProperty("#usergroups", movie.UserGroup.Replace(" /", ","));
+      Utils.SetProperty("#moviecollection", !string.IsNullOrEmpty(movie.MovieCollection) ? movie.MovieCollection.Replace(" /", ",") : string.Empty);
+      Utils.SetProperty("#usergroups", !string.IsNullOrEmpty(movie.UserGroup) ? movie.UserGroup.Replace(" /", ",") : string.Empty);
       Utils.SetProperty("#moviepath", movie.Path);
       Utils.SetProperty("#awards", movie.MovieAwards);
 

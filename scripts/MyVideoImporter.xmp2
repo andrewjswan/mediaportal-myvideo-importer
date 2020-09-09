@@ -370,7 +370,7 @@ cul8er</Value>
     <VersionDescription>Bug fixes</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2020-05-09T09:06:46</ReleaseDate>
+    <ReleaseDate>2020-09-09T09:06:46</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
