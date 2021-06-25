@@ -74,32 +74,40 @@ namespace MyVideoImporter
       config.AddTarget("myvideo-importer", fileTarget);
 
       // Get current Log Level from MediaPortal 
-      LogLevel logLevel;
-      MediaPortal.Profile.Settings xmlreader = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"));
+      LogLevel logLevel = LogLevel.Debug;
+      string threadPriority = "Normal";
+      int intLogLevel = 3;
 
-      string str = xmlreader.GetValue("general", "ThreadPriority");
-      Priority = str == null || !str.Equals("Normal", StringComparison.CurrentCulture) ? (str == null || !str.Equals("BelowNormal", StringComparison.CurrentCulture) ? ePriority.BelowNormal : ePriority.Lowest) : ePriority.Lowest;
-
-      switch ((Level)xmlreader.GetValueAsInt("general", "loglevel", 0))
+      using (MediaPortal.Profile.Settings xmlreader = new MediaPortal.Profile.MPSettings())
       {
-        case Level.Error:
+        threadPriority = xmlreader.GetValueAsString("general", "ThreadPriority", threadPriority);
+        intLogLevel = xmlreader.GetValueAsInt("general", "loglevel", intLogLevel);
+      }
+
+      switch (intLogLevel)
+      {
+        case 0:
           logLevel = LogLevel.Error;
           break;
-        case Level.Warning:
+        case 1:
           logLevel = LogLevel.Warn;
           break;
-        case Level.Information:
+        case 2:
           logLevel = LogLevel.Info;
           break;
-        case Level.Debug:
         default:
           logLevel = LogLevel.Debug;
           break;
       }
-
       #if DEBUG
       logLevel = LogLevel.Debug;
       #endif
+
+      Priority = string.IsNullOrEmpty(threadPriority) || !threadPriority.Equals("Normal", StringComparison.CurrentCulture) ?
+                  (string.IsNullOrEmpty(threadPriority) || !threadPriority.Equals("BelowNormal", StringComparison.CurrentCulture) ?
+                    ePriority.BelowNormal :
+                    ePriority.Lowest) :
+                  ePriority.Lowest;
 
       LoggingRule rule = new LoggingRule("MyVideoImporter.*", logLevel, fileTarget);
       config.LoggingRules.Add(rule);
