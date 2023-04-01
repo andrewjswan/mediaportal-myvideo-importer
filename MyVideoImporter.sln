@@ -7,14 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVideoImporter", "MyVideoI
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Debug|x86.ActiveCfg = Debug|x86
-		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Debug|x86.Build.0 = Debug|x86
-		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Release|x86.ActiveCfg = Release|x86
-		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Release|x86.Build.0 = Release|x86
+		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{7C2D6C5E-7E3B-40DB-86B2-70F647389F11}.Release|AnyCPU.Build.0 = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
