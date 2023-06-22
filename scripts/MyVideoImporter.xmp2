@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PackageClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<PackageClass xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Version>2.0</Version>
   <Groups>
     <Items>
@@ -176,6 +176,13 @@
               <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\Installer\skin\Titan\Media\hover_myvideoimporter.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6e3b3d49-464b-48c9-906b-b70e20300945}-hover_myvideoimporter.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\hover_myvideoimporter.png</DestinationFilename>
             </FileItem>
           </Items>
         </Files>
@@ -358,7 +365,7 @@ cul8er</Value>
     <Id>dba14ebb-b9c8-4996-a015-073da658b94b</Id>
     <Author>ajs</Author>
     <HomePage>https://github.com/andrewjswan/mediaportal-myvideo-importer</HomePage>
-    <ForumPage>http://forum.team-mediaportal.com/threads/myvideo-importer-v2-3-x-000.132114/</ForumPage>
+    <ForumPage>https://forum.team-mediaportal.com/threads/myvideo-importer-v2-3-x-000.132114/</ForumPage>
     <UpdateUrl>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/scripts/MyVideoImporter.xml</UpdateUrl>
     <Version>
       <Major>1</Major>
@@ -367,12 +374,12 @@ cul8er</Value>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>MyVideo Automatic Importer</ExtensionDescription>
-    <VersionDescription>Rebuild to support x86 and x64 architectures.
+    <VersionDescription>Add hover Image for Titan skin
 
 *** We Stand with Ukraine ***</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2023-04-01T09:06:46</ReleaseDate>
+    <ReleaseDate>2023-06-22T09:06:46</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
@@ -548,6 +555,13 @@ cul8er</Value>
         <LocalFileName>..\Installer\skin\Titan\MyVideoImporter.fanart.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{3f61f7ba-2ecd-4d09-87ea-e1a37943c37a}-MyVideoImporter.fanart.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\MyVideoImporter.fanart.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Installer\skin\Titan\Media\hover_myvideoimporter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6e3b3d49-464b-48c9-906b-b70e20300945}-hover_myvideoimporter.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\hover_myvideoimporter.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />

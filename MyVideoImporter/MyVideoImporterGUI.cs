@@ -123,7 +123,7 @@ namespace MyVideoImporter
       strButtonText = PluginName();
       strButtonImage = string.Empty;
       strButtonImageFocus = string.Empty;
-      strPictureImage = "hover_my videos.png";
+      strPictureImage = "hover_myvideoimporter.png";
       return true;
     }
 
