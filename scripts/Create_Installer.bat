@@ -2,16 +2,6 @@
 cls
 Title Creating MediaPortal MyVideo Importer Installer
 
-:: Check for modification
-REM svn status ..\source | findstr "^M"
-REM if ERRORLEVEL 1 (
-REM 	echo No modifications in source folder.
-REM ) else (
-REM 	echo There are modifications in source folder. Aborting.
-REM 	pause
-REM 	exit 1
-REM )
-
 if "%programfiles(x86)%XXX"=="XXX" goto 32BIT
 	:: 64-bit
 	set PROGS=%programfiles(x86)%
@@ -23,13 +13,13 @@ if "%programfiles(x86)%XXX"=="XXX" goto 32BIT
 IF NOT EXIST "%PROGS%\Team MediaPortal\MediaPortal\" SET PROGS=C:
 
 :: Get version from DLL
-FOR /F "tokens=1-3" %%i IN ('Tools\sigcheck.exe "..\MyVideoImporter\bin\Release\MyVideoImporter.dll"') DO ( IF "%%i %%j"=="File version:" SET version=%%k )
+FOR /F "tokens=1-3" %%i IN ('Tools\sigcheck.exe -accepteula -q "..\MyVideoImporter\bin\Release\MyVideoImporter.dll"') DO ( IF "%%i %%j"=="File version:" SET version=%%k )
 
 :: trim version
 SET version=%version:~0,-1%
 
 :: Temp xmp2 file
-copy MyVideoImporter.xmp2 MyVideoImporterTemp.xmp2
+copy /Y MyVideoImporter.xmp2 MyVideoImporterTemp.xmp2
 
 :: Sed "MyVideoImporter-{VERSION}.xml" from xmp2 file
 Tools\sed.exe -i "s/MyVideoImporter-{VERSION}.xml/MyVideoImporter-%version%.xml/g" MyVideoImporterTemp.xmp2
@@ -54,5 +44,3 @@ FOR /F "tokens=1-4 delims=." %%i IN ("%version%") DO (
 :: Rename mpe1
 if exist "..\builds\MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1" del "..\builds\MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1"
 rename ..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1 "MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1"
-
-
