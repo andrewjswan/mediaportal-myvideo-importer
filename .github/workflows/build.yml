@@ -101,11 +101,6 @@ jobs:
       - name: Get MPE1 Version
         id: version
         run: |
-          ECHO @ECHO OFF > version.cmd
-          ECHO FOR /F "tokens=1-3" %%i IN ('Tools\sigcheck.exe -accepteula -q "..\MyVideoImporter\bin\Release\MyVideoImporter.dll"') DO ( IF "%%i %%j"=="File version:" SET version=%%k ) >> version.cmd
-          ECHO SET version=%version:~0,-1% >> version.cmd
-          ECHO ECHO %version% >> version.cmd
-          version.cmd
           version.cmd >> $GITHUB_OUTPUT
         working-directory: ${{ github.workspace }}\scripts
         shell: cmd
