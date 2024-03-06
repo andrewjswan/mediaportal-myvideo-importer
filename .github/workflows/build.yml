@@ -114,13 +114,6 @@ jobs:
           retention-days: ${{ inputs.retention-build || 90 }}
           if-no-files-found: error
 
-      - name: Get MPE1 Version
-        id: version
-        run: |
-          version-show.cmd >> $GITHUB_OUTPUT
-        working-directory: ${{ github.workspace }}\scripts
-        shell: cmd
-
   ci-status:
     name: Status
     runs-on: ubuntu-latest
