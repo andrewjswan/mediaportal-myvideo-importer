@@ -98,13 +98,6 @@ jobs:
         working-directory: ${{ github.workspace }}\builds
         shell: cmd
 
-      - name: Get MPE1 Version
-        id: version
-        run: |
-          version.cmd >> $GITHUB_OUTPUT
-        working-directory: ${{ github.workspace }}\scripts
-        shell: cmd
-
       - name: Build MPE1
         run: |
           Create_Installer.bat
@@ -120,6 +113,13 @@ jobs:
             ${{ github.workspace }}\builds\MyVideoImporter-*.mpe1
           retention-days: ${{ inputs.retention-build || 90 }}
           if-no-files-found: error
+
+      - name: Get MPE1 Version
+        id: version
+        run: |
+          version-show.cmd >> $GITHUB_OUTPUT
+        working-directory: ${{ github.workspace }}\scripts
+        shell: cmd
 
   ci-status:
     name: Status
