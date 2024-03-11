@@ -30,7 +30,7 @@ jobs:
         working-directory: release-files
 
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: MyVideo Importer v${{needs.build.outputs.version}}
           tag_name: v${{needs.build.outputs.version}}
