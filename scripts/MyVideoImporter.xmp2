@@ -205,7 +205,7 @@ It is recommended that you close all other applications before continuing.
 Click Next to continue or Cancel to exit Setup.
 
 Best Regards
-cul8er</Value>
+ajs</Value>
               <ValueType>String</ValueType>
               <Description />
             </SectionParam>
@@ -378,8 +378,8 @@ cul8er</Value>
 
 *** We Stand with Ukraine ***</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
-    <OnlineLocation>https://raw.githubusercontent.com/andrewjswan/mediaportal-myvideo-importer/master/builds/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
-    <ReleaseDate>2023-06-22T09:06:46</ReleaseDate>
+    <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/releases/download/v{VERSION}/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
+    <ReleaseDate>2024-03-18T17:17:17</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
     <Params>
@@ -586,7 +586,7 @@ cul8er</Value>
       </FolderGroup>
     </FolderGroups>
     <ProjectFilename>MyVideoImporter.xmp2</ProjectFilename>
-    <UpdatePath1>MyVideoImporter-{VERSION}.xml</UpdatePath1>
+    <UpdatePath1>MyVideoImporter.xml</UpdatePath1>
     <UpdatePath2 />
     <UpdatePath3 />
   </ProjectSettings>
