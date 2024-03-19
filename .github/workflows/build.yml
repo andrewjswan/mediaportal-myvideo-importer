@@ -20,9 +20,6 @@ on:
       version:
         description: "MPE1 Version"
         value: ${{ jobs.mpe.outputs.version }}
-      changes:
-        description: "MPE1 Version Description"
-        value: ${{ jobs.mpe.outputs.changes }}
 
 jobs:
   build:
@@ -78,7 +75,6 @@ jobs:
       - build
     outputs:
       version: ${{ steps.version.outputs.version }}
-      changes: ${{ steps.changes.outputs.changes }}
     steps:
       - name: Restore cache
         uses: actions/cache/restore@v4
