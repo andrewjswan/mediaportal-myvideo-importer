@@ -21,8 +21,8 @@ SET version=%version:~0,-1%
 :: Temp xmp2 file
 copy /Y MyVideoImporter.xmp2 MyVideoImporterTemp.xmp2
 
-:: Sed "MyVideoImporter-{VERSION}.xml" from xmp2 file
-Tools\sed.exe -i "s/MyVideoImporter-{VERSION}.xml/MyVideoImporter-%version%.xml/g" MyVideoImporterTemp.xmp2
+:: Sed "{VERSION}" from xmp2 file
+Tools\sed.exe -i "s/{VERSION}/%version%/g" MyVideoImporterTemp.xmp2
 
 :: Build mpe1
 "%PROGS%\Team MediaPortal\MediaPortal\MPEMaker.exe" MyVideoImporterTemp.xmp2 /B /V=%version% /UpdateXML

@@ -20,6 +20,9 @@ on:
       version:
         description: "MPE1 Version"
         value: ${{ jobs.mpe.outputs.version }}
+      changes:
+        description: "MPE1 Version Description"
+        value: ${{ jobs.mpe.outputs.changes }}
 
 jobs:
   build:
@@ -75,6 +78,7 @@ jobs:
       - build
     outputs:
       version: ${{ steps.version.outputs.version }}
+      changes: ${{ steps.changes.outputs.changes }}
     steps:
       - name: Restore cache
         uses: actions/cache/restore@v4
@@ -82,7 +86,7 @@ jobs:
           path: ${{ github.workspace }}
           key: plugin
 
-      - name: Git Checkout / MPE
+      - name: Git Checkout / MPE / XPath
         uses: actions/checkout@v4
         with:
           repository: andrewjswan/MPE
@@ -127,38 +131,71 @@ jobs:
           retention-days: ${{ inputs.retention-build || 90 }}
           if-no-files-found: error
 
-      - name: Save cache
-        if: "contains(github.event.head_commit.message, '[release]')"
-        uses: actions/cache/save@v4
+      - name: Upload Artifact / MPE XML
+        uses: actions/upload-artifact@v4
+        if: ${{ success() && contains(github.event.head_commit.message, '[release]') }}
         with:
-          path: ${{ github.workspace }}
-          key: plugin-mpe
+          name: MyVideoImporter XML
+          path: |
+            ${{ github.workspace }}\scripts\MyVideoImporter.xml
+          retention-days: ${{ inputs.retention-build || 90 }}
+          if-no-files-found: error
 
+      - name: Get Release Version Description
+        if: ${{ success() && contains(github.event.head_commit.message, '[release]') }}
+        run: |
+          call ..\MPE\XPath\xpath.cmd "MyVideoImporter.xml" "//Items/PackageClass/GeneralInfo/VersionDescription" last > description.txt
+        working-directory: ${{ github.workspace }}\scripts
+        shell: cmd
+
+      - name: Upload Artifact / Version Description
+        uses: actions/upload-artifact@v4
+        if: ${{ success() && contains(github.event.head_commit.message, '[release]') }}
+        with:
+          name: MyVideoImporter Version Description
+          path: |
+            ${{ github.workspace }}\scripts\description.txt
+          retention-days: ${{ inputs.retention-build || 90 }}
+          if-no-files-found: error
+
+  xml:
+    name: MyVideo Importer / XML
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[release]')"
+    needs:
+      - mpe
+    permissions:
+      contents: write
+    steps:
       - name: Git Checkout
-        if: "contains(github.event.head_commit.message, '[release]')"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Restore cache
-        if: "contains(github.event.head_commit.message, '[release]')"
-        uses: actions/cache/restore@v4
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
         with:
-          path: ${{ github.workspace }}
-          key: plugin-mpe
+          name: MyVideoImporter XML
+          path: ${{ github.workspace }}/scripts/
 
       - name: Update / MPE1 XML
-        if: "contains(github.event.head_commit.message, '[release]')"
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'Update / MPE1 XML for ${{ steps.version.outputs.version }}'
-          add: '${{ github.workspace }}\scripts\MyVideoImporter.xml'
+          message: 'MyVideo Importer ${{needs.mpe.outputs.version}} / Release'
+          add: '${{ github.workspace }}/scripts/MyVideoImporter.xml'
+
+      - name: Delete XML Artifact
+        uses: geekyeggo/delete-artifact@v5
+        with:
+            name: MyVideoImporter XML
+            failOnError: false
 
   release:
-    name: Release MyVideo Importer
+    name: MyVideo Importer / Release
     if: "contains(github.event.head_commit.message, '[release]')"
     needs:
       - mpe
+      - xml
     permissions:
       contents: write
     
@@ -171,6 +208,12 @@ jobs:
           name: MyVideoImporter MPE1
           path: release-files
 
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: MyVideoImporter Version Description
+          path: release-description
+
       - name: Check Artifacts
         run: |
           ls -l
@@ -179,14 +222,27 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: MyVideo Importer v${{needs.build.outputs.version}}
-          tag_name: v${{needs.build.outputs.version}}
+          name: MyVideo Importer v${{needs.mpe.outputs.version}}
+          tag_name: v${{needs.mpe.outputs.version}}
+          body_path: release-description/description.txt
           generate_release_notes: true
           files: |
             release-files/*.mpe1
 
+      - name: Delete MPE1 Artifact
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: MyVideoImporter MPE1
+          failOnError: false
+
+      - name: Delete Version Description Artifact
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: MyVideoImporter Version Description
+          failOnError: false
+
   ci-status:
-    name: Status
+    name: Build Status
     runs-on: ubuntu-latest
     needs:
       - build
