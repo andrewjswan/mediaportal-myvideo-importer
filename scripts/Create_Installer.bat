@@ -30,9 +30,6 @@ Tools\sed.exe -i "s/{VERSION}/%version%/g" MyVideoImporterTemp.xmp2
 :: Cleanup
 del MyVideoImporterTemp.xmp2
 
-:: Sed "MyVideoImporter-{VERSION}.mpe1" from MyVideoImporter.xml
-Tools\sed.exe -i "s/MyVideoImporter-{VERSION}.mpe1/MyVideoImporter-%version%.mpe1/g" MyVideoImporter-%version%.xml
-
 :: Parse version (Might be needed in the futute)
 FOR /F "tokens=1-4 delims=." %%i IN ("%version%") DO ( 
 	SET major=%%i
