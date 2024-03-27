@@ -13,31 +13,13 @@ if "%programfiles(x86)%XXX"=="XXX" goto 32BIT
 IF NOT EXIST "%PROGS%\Team MediaPortal\MediaPortal\" SET PROGS=C:
 
 :: Get version from DLL
-FOR /F "tokens=1-3" %%i IN ('Tools\sigcheck.exe -accepteula -nobanner "..\MyVideoImporter\bin\Release\MyVideoImporter.dll"') DO ( IF "%%i %%j"=="File version:" SET version=%%k )
-
-:: trim version
-SET version=%version:~0,-1%
+FOR /F "tokens=*" %%i IN ('Tools\sigcheck.exe /accepteula /nobanner /n "..\MyVideoImporter\bin\Release\MyVideoImporter.dll"') DO (SET version=%%i)
 
 :: Temp xmp2 file
 copy /Y MyVideoImporter.xmp2 MyVideoImporterTemp.xmp2
-
-:: Sed "{VERSION}" from xmp2 file
-Tools\sed.exe -i "s/{VERSION}/%version%/g" MyVideoImporterTemp.xmp2
 
 :: Build mpe1
 "%PROGS%\Team MediaPortal\MediaPortal\MPEMaker.exe" MyVideoImporterTemp.xmp2 /B /V=%version% /UpdateXML
 
 :: Cleanup
 del MyVideoImporterTemp.xmp2
-
-:: Parse version (Might be needed in the futute)
-FOR /F "tokens=1-4 delims=." %%i IN ("%version%") DO ( 
-	SET major=%%i
-	SET minor=%%j
-	SET build=%%k
-	SET revision=%%l
-)
-
-:: Rename mpe1
-if exist "..\builds\MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1" del "..\builds\MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1"
-rename ..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1 "MyVideoImporter-%major%.%minor%.%build%.%revision%.mpe1"

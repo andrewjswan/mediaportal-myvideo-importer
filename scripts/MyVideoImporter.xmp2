@@ -382,11 +382,11 @@ Repo rework, migrating to Github Release
 
 *** We Stand with Ukraine ***</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
-    <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/releases/download/v{VERSION}/MyVideoImporter-{VERSION}.mpe1</OnlineLocation>
+    <OnlineLocation>https://github.com/andrewjswan/mediaportal-myvideo-importer/releases/download/v[Version]/MyVideoImporter-[Version].mpe1</OnlineLocation>
     <ReleaseDate>2024-03-19T17:17:17</ReleaseDate>
     <Tags>myvideo, importer</Tags>
     <PlatformCompatibility>AnyCPU</PlatformCompatibility>
-    <Location>..\builds\MyVideoImporter-MAJOR.MINOR.BUILD.REVISION.mpe1</Location>
+    <Location>..\builds\MyVideoImporter-[Version].mpe1</Location>
     <Params>
       <Items>
         <SectionParam Name="Icon">
