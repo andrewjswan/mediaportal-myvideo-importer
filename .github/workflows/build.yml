@@ -210,7 +210,7 @@ jobs:
           path: ${{ github.workspace }}/scripts/
 
       - name: Update / MPE1 XML
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10
         with:
           message: 'MyVideo Importer ${{needs.mpe.outputs.version}} / Release'
           add: '${{ github.workspace }}/scripts/MyVideoImporter.xml'
